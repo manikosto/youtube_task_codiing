@@ -1,5 +1,6 @@
 import requests
 import pyodbc
+import pytest
 from faker import Faker
 
 fake = Faker()
@@ -24,6 +25,7 @@ class TestDbIntegration:
             "email": fake.email()
         }
 
+    @pytest.mark.user
     def test_create_user(self):
         # API запрос на регистрацию
         response = requests.post(
